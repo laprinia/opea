@@ -4,6 +4,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import { config } from "./config/config";
+import userRoutes from "./routes/User";
 dotenv.config();
 
 const app: Express = express();
@@ -24,13 +25,14 @@ mongoose
   });
 
 const startServer = () => {
+  //API Rules
   app.use((req, res, next) => {
     console.log(
-      `[opea-server]: Method: [${req.method}] - Url: [${req.url}] - IP[${req.socket.remoteAddress}]`
+      `[opea-server]: Incoming Method: [${req.method}] - Url: [${req.url}] - IP[${req.socket.remoteAddress}]`
     );
     res.on("finish", () => {
       console.log(
-        `[opea-server]: Method: [${req.method}] - Url: [${req.url}] - IP[${req.socket.remoteAddress}]`
+        `[opea-server]: Outcoming Method: [${req.method}] - Url: [${req.url}] - IP[${req.socket.remoteAddress}]`
       );
     });
     next();
@@ -40,10 +42,14 @@ const startServer = () => {
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
 
+  //Routes
+  app.use("/users/", userRoutes);
+  // Healthcheck
   app.get("/ping", (req: Request, res: Response, next: NextFunction) => {
     res.send("Hi!");
   });
 
+  //Error Handling
   app.use((req: Request, res: Response, next: NextFunction) => {
     const error = new Error("Resource not found");
     console.error(error);
