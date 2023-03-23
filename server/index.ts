@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import { config } from "./config/config";
 import userRoutes from "./routes/User";
+import bucketRoutes from "./routes/Bucket";
 dotenv.config();
 
 const app: Express = express();
@@ -44,6 +45,7 @@ const startServer = () => {
 
   //Routes
   app.use("/users/", userRoutes);
+  app.use("/buckets/", bucketRoutes);
   // Healthcheck
   app.get("/ping", (req: Request, res: Response, next: NextFunction) => {
     res.send("Hi!");
