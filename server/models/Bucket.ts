@@ -22,6 +22,7 @@ const BucketSchema: Schema = new Schema(
     hexColors: { type: [String], required: true },
     preferredColorFormat: { type: String, enum: ColorFormatsArray },
     preferredColorOutput: { type: String, enum: ColorOutputsArray },
+    user: { type: Schema.Types.ObjectId, required: true, ref: "User" },
   },
   { versionKey: false }
 );
