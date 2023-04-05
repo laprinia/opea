@@ -13,6 +13,8 @@ const app: Express = express();
 const port = process.env.PORT;
 const corsOptions = {
   origin: "http://localhost:3000",
+  method: ["GET", "POST"],
+  credentials: true,
 };
 
 mongoose
@@ -22,7 +24,7 @@ mongoose
     startServer();
   })
   .catch((e) => {
-    console.log(e);
+    console.log(`[opea-server]: ${e}`);
   });
 
 const startServer = () => {
