@@ -8,7 +8,7 @@ const CustomFonts = () => {
           "@font-face": {
             fontFamily: "Just Sans",
             src: `url('${regular}') format("woff2")`,
-            fontWeight: 200,
+            fontWeight: 500,
             fontStyle: "normal",
           },
         },
