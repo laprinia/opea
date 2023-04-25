@@ -85,6 +85,7 @@ const App = () => {
             "#ece3e1",
           ],
         },
+        primaryColor: "blueJelly",
       }}
     >
       <CustomFonts />
