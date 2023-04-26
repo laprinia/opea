@@ -1,5 +1,5 @@
 import React from "react";
-import LoginCard from "../molecules/LoginCard";
+import LoginCard from "../organisms/LoginCard";
 import { Center, Container } from "@mantine/core";
 
 const randomizedArtUrl =

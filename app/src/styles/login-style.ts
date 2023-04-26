@@ -8,6 +8,7 @@ export const useLoginStyles = createStyles((theme) => ({
   textInput: {
     fontSize: "14px",
     backgroundColor: `rgba(24,24,24,0.5)`,
+    color: theme.colors["offWhite"],
     boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.5)",
     backdropFilter: `blur(5px)`,
   },

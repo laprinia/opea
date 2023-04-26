@@ -1,31 +1,19 @@
-import React from "react";
 import {
   Anchor,
-  Stack,
-  Card,
-  TextInput,
   Button,
+  Card,
   PasswordInput,
-  Title,
   Space,
+  Stack,
+  TextInput,
+  Title,
 } from "@mantine/core";
+import React from "react";
 import { useLoginStyles } from "../../styles/login-style";
-
-const LoginCard = () => {
+function LoginSection() {
   const { classes } = useLoginStyles();
   return (
-    <Card
-      shadow="sm"
-      mt="xl"
-      radius="lg"
-      mih="50vh"
-      miw="30vw"
-      sx={{
-        background: `rgba(24,24,24,0.5)`,
-        boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.5)",
-        backdropFilter: `blur(5px)`,
-      }}
-    >
+    <Card.Section sx={{ width: "70%", marginLeft: "30%" }}>
       <Stack
         spacing="md"
         align="stretch"
@@ -39,7 +27,7 @@ const LoginCard = () => {
         </Title>
         <Space />
         <Title order={4} color="offWhite">
-          Enter you credentials to start swatching
+          Enter you credentials to start swatching:
         </Title>
         <TextInput
           size="md"
@@ -48,6 +36,7 @@ const LoginCard = () => {
           error="An error will be here"
           inputWrapperOrder={["label", "input", "error"]}
           radius="lg"
+          color="offWhite"
           classNames={{ input: classes.textInput, label: classes.textLabel }}
         />
         <PasswordInput
@@ -65,7 +54,6 @@ const LoginCard = () => {
         >
           Login
         </Button>
-
         <Space h="xl" />
         <Anchor
           href="https://mantine.dev/"
@@ -76,8 +64,7 @@ const LoginCard = () => {
           Not a swatcher? Sign up!
         </Anchor>
       </Stack>
-    </Card>
+    </Card.Section>
   );
-};
-
-export default LoginCard;
+}
+export default LoginSection;
