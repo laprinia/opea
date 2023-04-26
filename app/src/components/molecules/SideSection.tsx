@@ -1,13 +1,18 @@
 import React from "react";
 import { Stack } from "@mantine/core";
 import SideSectionContent from "./SideSectionContent";
-function SideSection() {
+
+interface SideSectionProps {
+  isReversed?: boolean;
+}
+const SideSection = (sideProps: SideSectionProps) => {
   return (
     <Stack
       align="center"
       justify="space-between"
       bg="offWhite"
       sx={{
+        marginLeft: sideProps.isReversed ? "70%" : "0%",
         position: "absolute",
         top: 0,
         left: 0,
@@ -20,5 +25,5 @@ function SideSection() {
       <SideSectionContent />
     </Stack>
   );
-}
+};
 export default SideSection;

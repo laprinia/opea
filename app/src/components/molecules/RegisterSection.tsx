@@ -10,10 +10,10 @@ import {
 } from "@mantine/core";
 import React from "react";
 import { useLoginStyles } from "../../styles/login-style";
-const LoginSection = () => {
+const RegisterSection = () => {
   const { classes } = useLoginStyles();
   return (
-    <Card.Section sx={{ width: "70%", marginLeft: "30%" }}>
+    <Card.Section sx={{ width: "70%" }}>
       <Stack
         spacing="md"
         align="stretch"
@@ -23,7 +23,7 @@ const LoginSection = () => {
         mih="50vh"
       >
         <Title order={1} align="center" color="offWhite">
-          Nice to see you!
+          Nice to meet you!
         </Title>
         <Space />
         <Title order={4} color="offWhite">
@@ -52,7 +52,7 @@ const LoginSection = () => {
           radius="lg"
           className={classes.button}
         >
-          Login
+          Register
         </Button>
         <Space h="xl" />
         <Anchor
@@ -61,10 +61,10 @@ const LoginSection = () => {
           align="center"
           color="offWhite"
         >
-          Not a swatcher? Sign up!
+          Already a swatcher? Sign in!
         </Anchor>
       </Stack>
     </Card.Section>
   );
 };
-export default LoginSection;
+export default RegisterSection;
