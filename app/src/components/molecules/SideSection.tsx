@@ -12,7 +12,7 @@ const SideSection = (sideProps: SideSectionProps) => {
       justify="space-between"
       bg="offWhite"
       sx={{
-        marginLeft: sideProps.isReversed ? "70%" : "0%",
+        marginLeft: !sideProps.isReversed ? "0%" : "70%",
         position: "absolute",
         top: 0,
         left: 0,

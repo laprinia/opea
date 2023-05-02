@@ -33,18 +33,24 @@ const LoginSection = () => {
           size="md"
           withAsterisk
           label="username"
-          error="An error will be here"
           inputWrapperOrder={["label", "input", "error"]}
           radius="lg"
           color="offWhite"
-          classNames={{ input: classes.textInput, label: classes.textLabel }}
+          classNames={{
+            input: classes.textInput,
+            label: classes.textLabel,
+          }}
         />
         <PasswordInput
           size="md"
           withAsterisk
           label=" password"
           radius="lg"
-          classNames={{ input: classes.textInput, label: classes.textLabel }}
+          classNames={{
+            input: classes.textInput,
+            label: classes.textLabel,
+            innerInput: classes.innerInput,
+          }}
         />
         <Button
           variant="light"
@@ -56,8 +62,7 @@ const LoginSection = () => {
         </Button>
         <Space h="xl" />
         <Anchor
-          href="https://mantine.dev/"
-          target="_blank"
+          href={`http://localhost:3000/login`}
           align="center"
           color="offWhite"
         >

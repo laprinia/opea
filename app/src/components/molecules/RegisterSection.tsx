@@ -33,7 +33,6 @@ const RegisterSection = () => {
           size="md"
           withAsterisk
           label="username"
-          error="An error will be here"
           inputWrapperOrder={["label", "input", "error"]}
           radius="lg"
           color="offWhite"
@@ -44,7 +43,24 @@ const RegisterSection = () => {
           withAsterisk
           label=" password"
           radius="lg"
-          classNames={{ input: classes.textInput, label: classes.textLabel }}
+          color="offWhite"
+          classNames={{
+            input: classes.textInput,
+            label: classes.textLabel,
+            innerInput: classes.innerInput,
+          }}
+        />
+        <PasswordInput
+          size="md"
+          withAsterisk
+          label="confirm password"
+          radius="lg"
+          color="offWhite"
+          classNames={{
+            input: classes.textInput,
+            label: classes.textLabel,
+            innerInput: classes.innerInput,
+          }}
         />
         <Button
           variant="light"
@@ -56,8 +72,7 @@ const RegisterSection = () => {
         </Button>
         <Space h="xl" />
         <Anchor
-          href="https://mantine.dev/"
-          target="_blank"
+          href={`http://localhost:3000/login`}
           align="center"
           color="offWhite"
         >
