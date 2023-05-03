@@ -2,6 +2,7 @@ import React from "react";
 import Components from "./components/Components";
 import CustomFonts from "./fonts/CustomFonts";
 import { MantineProvider } from "@mantine/core";
+import { Notifications } from "@mantine/notifications";
 
 const App = () => {
   return (
@@ -88,6 +89,7 @@ const App = () => {
         primaryColor: "orangeJelly",
       }}
     >
+      <Notifications />
       <CustomFonts />
       <Components />
     </MantineProvider>

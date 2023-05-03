@@ -3,7 +3,7 @@ import { Card } from "@mantine/core";
 import SideSection from "../molecules/SideSection";
 import RegisterSection from "../molecules/RegisterSection";
 
-const LoginCard = () => {
+const RegisterCard = () => {
   return (
     <Card
       shadow="sm"
@@ -23,4 +23,4 @@ const LoginCard = () => {
   );
 };
 
-export default LoginCard;
+export default RegisterCard;

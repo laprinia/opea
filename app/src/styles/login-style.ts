@@ -14,7 +14,7 @@ export const useLoginStyles = createStyles((theme) => ({
   },
   innerInput: {
     color: theme.colors["offWhite"],
-    fontSize: "24px",
+    fontSize: "20px",
   },
   textLabel: {
     color: theme.colors["offWhite"],
