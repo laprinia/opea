@@ -8,8 +8,16 @@ import {
   TextInput,
   Title,
 } from "@mantine/core";
-import React, { useState } from "react";
+import { Cross1Icon } from "@radix-ui/react-icons";
+import React, { FormEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
+import {
+  showLoginErrorNotification,
+  validateForm,
+  validateLoginPassword,
+  validateUsername,
+} from "../../helpers/login-helpers";
 import UserDataService from "../../service/UserDataService";
 import { useLoginStyles } from "../../styles/login-style";
 
@@ -18,14 +26,47 @@ const LoginSection = () => {
   const [loginValues, setLoginValues] = useState({
     username: "",
     password: "",
+    isEntered: false,
   });
-  const handleLogin = (event: Event) => {
-    UserDataService.get(0)
-      .then()
-      .catch((e) => {
-        console.log(e);
-      });
+  const navigate = useNavigate();
+
+  const handleLogin = (event: FormEvent<HTMLButtonElement>) => {
     event.preventDefault();
+    setLoginValues({ ...loginValues, isEntered: true });
+    if (!validateForm(loginValues.username, loginValues.password)) {
+      showLoginErrorNotification(
+        "Make sure all errors are cleared! 🔧",
+        "Oops",
+        <Cross1Icon />
+      );
+      return;
+    }
+    UserDataService.authenticate(loginValues.username, loginValues.password)
+      .then(() => {
+        navigate("/dashboard");
+      })
+      .catch((error) => {
+        if (error.errorMessage === `Incorrect username`) {
+          showLoginErrorNotification(
+            "Cannot find your account! 📕",
+            "Oops",
+            <Cross1Icon />
+          );
+        }
+        if (error.errorMessage === `Incorrect password`) {
+          showLoginErrorNotification(
+            "Incorrect password! 🖍️",
+            "Oops",
+            <Cross1Icon />
+          );
+        } else {
+          showLoginErrorNotification(
+            error.response.data.errorMessage,
+            "Axios error",
+            <Cross1Icon />
+          );
+        }
+      });
   };
   return (
     <Card.Section sx={{ width: "70%", marginLeft: "30%" }}>
@@ -46,6 +87,11 @@ const LoginSection = () => {
         </Title>
         <TextInput
           name="username"
+          error={
+            loginValues.isEntered
+              ? validateUsername(loginValues.username, "username")
+              : undefined
+          }
           size="md"
           withAsterisk
           label="username"
@@ -56,9 +102,20 @@ const LoginSection = () => {
             input: classes.textInput,
             label: classes.textLabel,
           }}
+          onChange={(event) => {
+            setLoginValues({
+              ...loginValues,
+              [event.target.name]: event.target.value,
+            });
+          }}
         />
         <PasswordInput
           name="password"
+          error={
+            loginValues.isEntered
+              ? validateLoginPassword(loginValues.password, "password")
+              : undefined
+          }
           size="md"
           withAsterisk
           label=" password"
@@ -80,6 +137,9 @@ const LoginSection = () => {
           size="md"
           radius="lg"
           className={classes.button}
+          onClick={(event) => {
+            handleLogin(event);
+          }}
         >
           Login
         </Button>

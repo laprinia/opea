@@ -1,6 +1,6 @@
 import { notifications } from "@mantine/notifications";
 
-export const showErrorNotification = (
+export const showLoginErrorNotification = (
   message: string,
   title: string,
   icon: JSX.Element
@@ -38,7 +38,10 @@ export const validateUsername = (input: string, referTo: string) => {
   if (input.length === 0) return `Please enter ${referTo}`;
   return "";
 };
-export const validatePassword = (input: string, referTo: string) => {
+export const validateLoginPassword = (input: string, referTo: string) => {
+  if (input.length === 0) return `Please enter ${referTo}`;
+};
+export const validateRegisterPassword = (input: string, referTo: string) => {
   if (input.length === 0) return `Please enter ${referTo}`;
   if (!passwordRegex.test(input))
     return `Must contain 8 chars and at least 1 number, 1 letter and 1 unique`;
@@ -48,5 +51,5 @@ export const validatePassword = (input: string, referTo: string) => {
 export const validateForm = (
   username: string,
   password: string,
-  confirmPassword: string
+  confirmPassword?: string
 ) => username != "" && password != "" && confirmPassword != "";

@@ -8,7 +8,8 @@ app.post(
   validateWithJoi(Schemas.user.create),
   controller.createUser
 );
-app.get("/get/:userId", controller.readUser);
+app.get("/get/:userId", controller.readUserById);
+app.post("/auth/", controller.authenticateUser);
 app.patch(
   "/update/:userId",
   validateWithJoi(Schemas.user.update),

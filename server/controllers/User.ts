@@ -1,12 +1,11 @@
 import { NextFunction, Request, response, Response } from "express";
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 import User from "../models/User";
 import dotenv from "dotenv";
 import { JWT_MAX_AGE } from "../consts";
 const jwt = require("jsonwebtoken");
 dotenv.config();
-
-const createToken = (id: number) => {
+const createToken = (id: any) => {
   return jwt.sign({ id }, process.env.JWT_ID, {
     expiresIn: JWT_MAX_AGE,
   });
@@ -42,7 +41,27 @@ const createUser = (req: Request, res: Response, next: NextFunction) => {
       res.status(500).json({ errorMessage });
     });
 };
-const readUser = (req: Request, res: Response, next: NextFunction) => {
+const authenticateUser = (req: Request, res: Response, next: NextFunction) => {
+  const { username, password } = req.body;
+  try {
+    User.login(username, password)
+      .then((user: any) => {
+        const token = createToken(user._id);
+        res.cookie("jwt", token, {
+          httpOnly: false,
+          maxAge: JWT_MAX_AGE * 1000,
+        });
+        res.status(200).json({ user });
+      })
+      .catch((e: Error) => {
+        let errorMessage = e.message;
+        res.status(500).json({ errorMessage });
+      });
+  } catch (error) {
+    res.status(505).json({ error });
+  }
+};
+const readUserById = (req: Request, res: Response, next: NextFunction) => {
   const userId = req.params.userId;
 
   return User.findById(userId)
@@ -86,4 +105,10 @@ const deleteUser = (req: Request, res: Response, next: NextFunction) => {
   );
 };
 
-export default { createUser, readUser, updateUser, deleteUser };
+export default {
+  createUser,
+  authenticateUser,
+  readUserById,
+  updateUser,
+  deleteUser,
+};

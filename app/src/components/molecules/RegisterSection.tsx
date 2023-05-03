@@ -10,11 +10,12 @@ import {
 } from "@mantine/core";
 import { Cross1Icon } from "@radix-ui/react-icons";
 import React, { FormEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import {
-  showErrorNotification,
+  showLoginErrorNotification,
   validateForm,
-  validatePassword,
+  validateRegisterPassword,
   validateUsername,
 } from "../../helpers/login-helpers";
 import UserDataService from "../../service/UserDataService";
@@ -22,6 +23,7 @@ import { useLoginStyles } from "../../styles/login-style";
 
 const RegisterSection = () => {
   const { classes } = useLoginStyles();
+  const navigate = useNavigate();
   const [registerValues, setRegisterValues] = useState({
     username: "",
     password: "",
@@ -39,7 +41,7 @@ const RegisterSection = () => {
         registerValues.confirmPassword
       )
     ) {
-      showErrorNotification(
+      showLoginErrorNotification(
         "Make sure all errors are cleared! 🔧",
         "Oops",
         <Cross1Icon />
@@ -47,7 +49,7 @@ const RegisterSection = () => {
       return;
     }
     if (registerValues.password !== registerValues.confirmPassword) {
-      showErrorNotification(
+      showLoginErrorNotification(
         "Password should match! 🤥",
         "Oops",
         <Cross1Icon />
@@ -58,7 +60,7 @@ const RegisterSection = () => {
       registerValues.username.length < 4 ||
       registerValues.username.length > 15
     ) {
-      showErrorNotification(
+      showLoginErrorNotification(
         "Username should have 4 to 15 chars! 🥹",
         "Oops",
         <Cross1Icon />
@@ -69,19 +71,21 @@ const RegisterSection = () => {
       username: registerValues.username,
       password: registerValues.password,
     })
-      .then()
+      .then(() => {
+        navigate("/dashboard");
+      })
       .catch((error) => {
         if (
           error.response.data.errorMessage ===
           `"username" is already a swatcher`
         ) {
-          showErrorNotification(
+          showLoginErrorNotification(
             "Username is already taken! ⛳️",
             "Oops",
             <Cross1Icon />
           );
         } else {
-          showErrorNotification(
+          showLoginErrorNotification(
             error.response.data.errorMessage,
             "Axios error",
             <Cross1Icon />
@@ -131,7 +135,7 @@ const RegisterSection = () => {
           name="password"
           error={
             registerValues.isEntered
-              ? validatePassword(registerValues.password, "password")
+              ? validateRegisterPassword(registerValues.password, "password")
               : undefined
           }
           size="md"
@@ -155,7 +159,7 @@ const RegisterSection = () => {
           name="confirmPassword"
           error={
             registerValues.isEntered
-              ? validatePassword(
+              ? validateRegisterPassword(
                   registerValues.confirmPassword,
                   "password confirmation"
                 )
