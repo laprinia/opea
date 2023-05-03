@@ -1,5 +1,6 @@
-import React from "react";
 import { Card } from "@mantine/core";
+import React from "react";
+
 import LoginSection from "../molecules/LoginSection";
 import SideSection from "../molecules/SideSection";
 

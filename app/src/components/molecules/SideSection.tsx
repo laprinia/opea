@@ -1,5 +1,6 @@
-import React from "react";
 import { Stack } from "@mantine/core";
+import React from "react";
+
 import SideSectionContent from "./SideSectionContent";
 
 interface SideSectionProps {

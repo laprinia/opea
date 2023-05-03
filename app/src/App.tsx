@@ -1,8 +1,9 @@
-import React from "react";
-import Components from "./components/Components";
-import CustomFonts from "./fonts/CustomFonts";
 import { MantineProvider } from "@mantine/core";
 import { Notifications } from "@mantine/notifications";
+import React from "react";
+
+import Components from "./components/Components";
+import CustomFonts from "./fonts/CustomFonts";
 
 const App = () => {
   return (

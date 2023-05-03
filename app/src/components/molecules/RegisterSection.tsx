@@ -8,16 +8,18 @@ import {
   TextInput,
   Title,
 } from "@mantine/core";
+import { Cross1Icon } from "@radix-ui/react-icons";
 import React, { FormEvent, useState } from "react";
-import { useLoginStyles } from "../../styles/login-style";
-import UserDataService from "../../service/UserDataService";
+
 import {
   showErrorNotification,
   validateForm,
   validatePassword,
   validateUsername,
 } from "../../helpers/login-helpers";
-import { Cross1Icon } from "@radix-ui/react-icons";
+import UserDataService from "../../service/UserDataService";
+import { useLoginStyles } from "../../styles/login-style";
+
 const RegisterSection = () => {
   const { classes } = useLoginStyles();
   const [registerValues, setRegisterValues] = useState({
@@ -29,7 +31,7 @@ const RegisterSection = () => {
 
   const handleRegister = (event: FormEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    setRegisterValues({ ...registerValues, ["isEntered"]: true });
+    setRegisterValues({ ...registerValues, isEntered: true });
     if (
       !validateForm(
         registerValues.username,
@@ -67,7 +69,7 @@ const RegisterSection = () => {
       username: registerValues.username,
       password: registerValues.password,
     })
-      .then((res) => {})
+      .then()
       .catch((error) => {
         if (
           error.response.data.errorMessage ===

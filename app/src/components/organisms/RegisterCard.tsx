@@ -1,7 +1,8 @@
-import React from "react";
 import { Card } from "@mantine/core";
-import SideSection from "../molecules/SideSection";
+import React from "react";
+
 import RegisterSection from "../molecules/RegisterSection";
+import SideSection from "../molecules/SideSection";
 
 const RegisterCard = () => {
   return (

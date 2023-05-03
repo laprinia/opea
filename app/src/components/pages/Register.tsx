@@ -1,6 +1,8 @@
 import React from "react";
-import UserForm from "../organisms/UserForm";
+
 import RegisterCard from "../organisms/RegisterCard";
+import UserForm from "../organisms/UserForm";
+
 const Register = () => {
   return (
     <UserForm>

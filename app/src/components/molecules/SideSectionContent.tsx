@@ -1,5 +1,5 @@
-import React from "react";
 import { Anchor, Space, Stack, Text, Title } from "@mantine/core";
+import React from "react";
 
 const SideSectionContent = () => {
   return (
@@ -25,7 +25,7 @@ const SideSectionContent = () => {
           gradient={{ from: "offBlack", to: "orangeJelly", deg: 40 }}
           align="center"
         >
-          "logo"
+          `logo`
         </Text>
         <Anchor
           href="https://mantine.dev/"

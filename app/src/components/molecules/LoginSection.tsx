@@ -9,8 +9,10 @@ import {
   Title,
 } from "@mantine/core";
 import React, { useState } from "react";
-import { useLoginStyles } from "../../styles/login-style";
+
 import UserDataService from "../../service/UserDataService";
+import { useLoginStyles } from "../../styles/login-style";
+
 const LoginSection = () => {
   const { classes } = useLoginStyles();
   const [loginValues, setLoginValues] = useState({
@@ -19,7 +21,7 @@ const LoginSection = () => {
   });
   const handleLogin = (event: Event) => {
     UserDataService.get(0)
-      .then((res) => {})
+      .then()
       .catch((e) => {
         console.log(e);
       });

@@ -1,5 +1,8 @@
 import { Global } from "@mantine/core";
+import React from "react";
+
 import regular from "./JustSans.woff2";
+
 const CustomFonts = () => {
   return (
     <Global
