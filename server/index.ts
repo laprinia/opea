@@ -1,5 +1,6 @@
 import express, { Express, NextFunction, Request, Response } from "express";
 import bodyParser from "body-parser";
+import cookieParser from "cookie-parser";
 import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
@@ -41,6 +42,7 @@ const startServer = () => {
     next();
   });
 
+  app.use(cookieParser());
   app.use(cors(corsOptions));
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));

@@ -19,9 +19,7 @@ export const validateWithJoi = (schema: ObjectSchema) => {
 
 const userSchema = {
   username: Joi.string().alphanum().min(4).max(15).required(),
-  password: Joi.string().pattern(
-    new RegExp("(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\\W)")
-  ),
+  password: Joi.string().required(),
 };
 const bucketSchema = {
   name: Joi.string().alphanum().min(4).max(15).required(),

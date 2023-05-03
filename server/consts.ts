@@ -9,3 +9,4 @@ export const ColorOutputsArray = [
   "Android sRGB",
 ] as const;
 export type ColorOutputs = (typeof ColorOutputsArray)[number];
+export const JWT_MAX_AGE = 3 * 24 * 60 * 60;
