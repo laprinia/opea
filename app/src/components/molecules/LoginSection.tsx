@@ -46,14 +46,13 @@ const LoginSection = () => {
         navigate("/dashboard");
       })
       .catch((error) => {
-        if (error.errorMessage === `Incorrect username`) {
+        if (error.response.data.errorMessage === `Incorrect username`) {
           showLoginErrorNotification(
             "Cannot find your account! 📕",
             "Oops",
             <Cross1Icon />
           );
-        }
-        if (error.errorMessage === `Incorrect password`) {
+        } else if (error.response.data.errorMessage === `Incorrect password`) {
           showLoginErrorNotification(
             "Incorrect password! 🖍️",
             "Oops",

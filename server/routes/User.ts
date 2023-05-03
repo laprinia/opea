@@ -1,8 +1,10 @@
 import express from "express";
 import controller from "../controllers/User";
 import { Schemas, validateWithJoi } from "../middleware/ValidateSchema";
+import { checkUser } from "../middleware/AuthenticateUser";
 
 const app = express.Router();
+app.post("/", checkUser);
 app.post(
   "/create",
   validateWithJoi(Schemas.user.create),

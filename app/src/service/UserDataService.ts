@@ -4,6 +4,9 @@ class UserDataService {
   get(id: number) {
     return http.get(`/users/get/${id}`);
   }
+  checkUser() {
+    return http.post(`/users/`);
+  }
   authenticate(username: string, password: string) {
     return http.post(`/users/auth`, {
       username: username,
