@@ -1,16 +1,59 @@
-import { Center, Container } from "@mantine/core";
-import React from "react";
+import { Center, Container, Loader } from "@mantine/core";
+import React, { useEffect, useState } from "react";
 
-const randomizedArtUrl =
-  "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.pixelstalk.net%2Fwp-content%2Fuploads%2F2016%2F12%2FClassic-Art-Background-HD.jpg&f=1&nofb=1&ipt=60b93d2febd088c5dadea3db3d119719f3a8da37626e95e37e82738cfba9b6bd&ipo=images";
+import { defaultImage } from "../../consts";
+import UnsplashDataService from "../../service/UnsplashDataService";
+
 const UserForm = (props: React.PropsWithChildren) => {
+  const [imageUrl, setImageUrl] = useState("");
+  const loadImage = async () => {
+    UnsplashDataService.getRandomImage(
+      "art",
+      "XMVx19Hb97aiH3lFOacUOunxcPH8zlyDrUx8S8X2uNo"
+    )
+      .then((response) => {
+        setImageUrl(response.data.links.download);
+      })
+      .catch((error) => {
+        setImageUrl(defaultImage);
+        console.log(error);
+      });
+  };
+  useEffect(() => {
+    loadImage();
+  }, []);
+
+  useEffect(() => {
+    console.log("Reloading");
+  }, [imageUrl]);
+
+  if (imageUrl === "")
+    return (
+      <Container
+        mih="100vh"
+        maw="100vw"
+        bg="offBlack"
+        sx={{
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+        }}
+      >
+        <Center mih="100vh" maw="100vw">
+          <Loader
+            sx={{ width: "10%", height: "10%" }}
+            color="orangeJelly"
+          ></Loader>
+        </Center>
+      </Container>
+    );
   return (
     <Container
       mih="100vh"
       maw="100vw"
       sx={{
         backgroundImage: `url(
-            ${randomizedArtUrl}
+            ${imageUrl}
           ) `,
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
