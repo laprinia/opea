@@ -1,4 +1,4 @@
-import { Center, Container, Loader } from "@mantine/core";
+import { Center, Container } from "@mantine/core";
 import React, { useEffect, useState } from "react";
 
 import { defaultImage } from "../../../consts";

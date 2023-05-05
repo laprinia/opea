@@ -1,3 +1,4 @@
+import { Container } from "@mantine/core";
 import React, { useEffect } from "react";
 
 import useJWT from "../../hooks/useJWT";
@@ -8,7 +9,11 @@ const Dashboard = () => {
   useEffect(() => {
     console.log(`Hii ${username}`);
   }, [isAuth]);
-  return <NavBar />;
+  return (
+    <NavBar>
+      <Container></Container>
+    </NavBar>
+  );
 };
 
 export default Dashboard;

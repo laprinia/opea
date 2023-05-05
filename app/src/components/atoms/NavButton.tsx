@@ -7,7 +7,13 @@ interface NavButtonProps {
 }
 const NavButton = (props: NavButtonProps) => {
   return (
-    <Button variant="subtle" compact color={props.color}>
+    <Button
+      size="30px"
+      variant="subtle"
+      compact
+      color={props.color}
+      styles={(theme) => ({ inner: { height: "50px" } })}
+    >
       {props.text}
     </Button>
   );
