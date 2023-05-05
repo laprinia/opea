@@ -1,8 +1,8 @@
 import { Card } from "@mantine/core";
 import React from "react";
 
-import LoginSection from "../molecules/LoginSection";
-import SideSection from "../molecules/SideSection";
+import LoginSection from "../../molecules/login/LoginSection";
+import SideSection from "../../molecules/login/SideSection";
 
 const LoginCard = () => {
   return (

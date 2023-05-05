@@ -1,14 +1,15 @@
 import { Center, Container, Loader } from "@mantine/core";
 import React, { useEffect, useState } from "react";
 
-import { defaultImage } from "../../consts";
-import UnsplashDataService from "../../service/UnsplashDataService";
+import { defaultImage } from "../../../consts";
+import UnsplashDataService from "../../../service/UnsplashDataService";
 
 const UserForm = (props: React.PropsWithChildren) => {
   const [imageUrl, setImageUrl] = useState("");
+  const [isImageLoading, setIsImageLoading] = useState(true);
   const loadImage = async () => {
     UnsplashDataService.getRandomImage(
-      "art",
+      "painting",
       "XMVx19Hb97aiH3lFOacUOunxcPH8zlyDrUx8S8X2uNo"
     )
       .then((response) => {
@@ -24,41 +25,27 @@ const UserForm = (props: React.PropsWithChildren) => {
   }, []);
 
   useEffect(() => {
-    console.log("Reloading");
+    setIsImageLoading(false);
   }, [imageUrl]);
 
-  if (imageUrl === "")
-    return (
-      <Container
-        mih="100vh"
-        maw="100vw"
-        bg="offBlack"
-        sx={{
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-        }}
-      >
-        <Center mih="100vh" maw="100vw">
-          <Loader
-            sx={{ width: "10%", height: "10%" }}
-            color="orangeJelly"
-          ></Loader>
-        </Center>
-      </Container>
-    );
   return (
     <Container
       mih="100vh"
       maw="100vw"
-      sx={{
-        backgroundImage: `url(
+      sx={
+        !isImageLoading
+          ? {
+              backgroundImage: `url(
             ${imageUrl}
           ) `,
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-      }}
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+            }
+          : {
+              backgroundColor: "#000000",
+            }
+      }
     >
       <Center mih="100vh" maw="100vw">
         {props.children}

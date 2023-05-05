@@ -17,9 +17,9 @@ import {
   validateForm,
   validateLoginPassword,
   validateUsername,
-} from "../../helpers/login-helpers";
-import UserDataService from "../../service/UserDataService";
-import { useLoginStyles } from "../../styles/login-style";
+} from "../../../helpers/login-helpers";
+import UserDataService from "../../../service/UserDataService";
+import { useLoginStyles } from "../../../styles/login-style";
 
 const LoginSection = () => {
   const { classes } = useLoginStyles();

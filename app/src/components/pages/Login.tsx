@@ -1,7 +1,7 @@
 import React from "react";
 
-import LoginCard from "../organisms/LoginCard";
-import UserForm from "../organisms/UserForm";
+import LoginCard from "../organisms/login/LoginCard";
+import UserForm from "../organisms/login/UserForm";
 
 const Login = () => {
   return (
