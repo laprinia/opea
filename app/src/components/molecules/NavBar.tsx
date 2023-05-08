@@ -1,4 +1,4 @@
-import { Badge, Container, Group, Text } from "@mantine/core";
+import { Badge, Container, Group, Space, Stack, Text } from "@mantine/core";
 import React from "react";
 
 import NavButton from "../atoms/NavButton";
@@ -6,7 +6,7 @@ import NavButton from "../atoms/NavButton";
 const NavBar = (props: React.PropsWithChildren) => {
   const imageUrl = "https://i.imgur.com/GJEzc3f.png";
   return (
-    <Container
+    <Stack
       mih="100vh"
       maw="100vw"
       sx={{
@@ -20,7 +20,7 @@ const NavBar = (props: React.PropsWithChildren) => {
     >
       <Group
         position="apart"
-        mih="60px"
+        mih="3vh"
         maw="100vw"
         sx={{
           marginLeft: "10px",
@@ -38,8 +38,11 @@ const NavBar = (props: React.PropsWithChildren) => {
         >
           opea
         </Text>
-        <NavButton text={"dashboard"} color={"offBlack"} />
-        <Group position="apart" spacing="sm">
+        <Group>
+          <Space w="5vw" />
+          <NavButton text={"dashboard"} color={"offBlack"} />
+        </Group>
+        <Group position="apart" spacing="sm" align="center">
           <NavButton text={"generate"} color={"offBlack"} />
           <NavButton text={"buckets"} color={"offBlack"} />
           <Badge
@@ -51,8 +54,10 @@ const NavBar = (props: React.PropsWithChildren) => {
           </Badge>
         </Group>
       </Group>
-      <Container>{props.children}</Container>
-    </Container>
+      <Container maw="97vh" miw="100vw">
+        {props.children}
+      </Container>
+    </Stack>
   );
 };
 export default NavBar;

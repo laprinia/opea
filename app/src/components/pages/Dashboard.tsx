@@ -1,4 +1,4 @@
-import { Container } from "@mantine/core";
+import { Container, Space, Stack, Text } from "@mantine/core";
 import React, { useEffect } from "react";
 
 import useJWT from "../../hooks/useJWT";
@@ -7,11 +7,12 @@ import NavBar from "../molecules/NavBar";
 const Dashboard = () => {
   const { username, isAuth } = useJWT();
   useEffect(() => {
-    console.log(`Hii ${username}`);
+    console.log(`Hi ${username}`);
   }, [isAuth]);
   return (
     <NavBar>
-      <Container></Container>
+      <Space h="300px" />
+      <Text size="400px" align="center">{`Hi ${username}`}</Text>
     </NavBar>
   );
 };
