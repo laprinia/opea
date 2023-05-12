@@ -1,7 +1,8 @@
-import { Anchor, Space, Stack, Text, Title } from "@mantine/core";
+import { Anchor, Image, Space, Stack, Text, Title } from "@mantine/core";
 import React from "react";
 
 const SideSectionContent = () => {
+  const imageUrl = process.env.REACT_APP_LOGO_URL;
   return (
     <>
       <Stack align="center">
@@ -19,16 +20,9 @@ const SideSectionContent = () => {
         </Text>
       </Stack>
       <Stack align="center">
-        <Text
-          variant="gradient"
-          size="xl"
-          gradient={{ from: "offBlack", to: "orangeJelly", deg: 40 }}
-          align="center"
-        >
-          `logo`
-        </Text>
+        <Image src={imageUrl} maw="20%" />
         <Anchor
-          href="https://mantine.dev/"
+          href={process.env.REACT_APP_GITHUB_URL}
           target="_blank"
           align="center"
           color="offBlack"

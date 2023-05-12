@@ -195,7 +195,7 @@ const RegisterSection = () => {
         </Button>
         <Space h="xl" />
         <Anchor
-          href={`http://localhost:3000/login`}
+          href={`${process.env.REACT_APP_CLIENT_ENV}/login`}
           align="center"
           color="offWhite"
         >

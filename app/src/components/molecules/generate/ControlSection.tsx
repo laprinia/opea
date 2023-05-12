@@ -1,4 +1,5 @@
-import { Stack } from "@mantine/core";
+import { Container, Flex, Stack, Text } from "@mantine/core";
+import { BlendingModeIcon } from "@radix-ui/react-icons";
 import React from "react";
 
 const ControlSection = () => {
@@ -16,7 +17,13 @@ const ControlSection = () => {
         height: "100%",
         boxSizing: "border-box",
       }}
-    ></Stack>
+    >
+      <Flex justify="center" align="center" direction="row">
+        <Text>Controls</Text>
+        <BlendingModeIcon />
+        <Container>s</Container>
+      </Flex>
+    </Stack>
   );
 };
 export default ControlSection;

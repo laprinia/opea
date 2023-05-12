@@ -13,7 +13,7 @@ const app: Express = express();
 
 const port = process.env.PORT;
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: process.env.REACT_APP_CLIENT_ENV,
   method: ["GET", "POST"],
   credentials: true,
 };

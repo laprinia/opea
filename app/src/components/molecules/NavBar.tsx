@@ -4,7 +4,7 @@ import React from "react";
 import NavButton from "../atoms/NavButton";
 
 const NavBar = (props: React.PropsWithChildren) => {
-  const imageUrl = "https://i.imgur.com/GJEzc3f.png";
+  const imageUrl = process.env.REACT_APP_BACKGROUND_URL;
   return (
     <Stack
       mih="100vh"
