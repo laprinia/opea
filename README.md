@@ -62,8 +62,18 @@ React & Node.js full-stack authentication for a color picking web app --written 
 }
   ```
  * randomized custom background provided by the unsplash API:
+ 
  ![Screenshot 2023-05-10 at 13 05 15](https://github.com/laprinia/opea/assets/51471463/7f65a487-d8ba-4577-aa18-525c194c2690)
- * glassmorphism components using custom CSS:
+ * glassmorphism components using custom CSS inside Mantine comps:
+ 
+ ![Screenshot 2023-05-15 at 13 49 10](https://github.com/laprinia/opea/assets/51471463/1967c82a-7be2-427d-a63c-ef1889d1d870)
+ ```js
+ sx={{
+        background: `rgba(24,24,24,0.5)`,
+        boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.5)",
+        backdropFilter: `blur(5px)`,
+      }}
+  ```
  * field as well as form validation for register function:
  
 ### ⏳Register Flow:
