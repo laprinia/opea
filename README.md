@@ -76,9 +76,22 @@ React & Node.js full-stack authentication for a color picking web app --written 
   ```
  * field as well as form validation for register function:
  
+ ![Screenshot 2023-05-15 at 14 14 04](https://github.com/laprinia/opea/assets/51471463/fe8897e2-3138-48ba-8408-0fae482c14be)
+
+ 
 ### ⏳Register Flow:
 
+
+https://github.com/laprinia/opea/assets/51471463/fcaed0f3-1607-4fce-9e5c-ff72b1642bc8
+
+
+
 ### ⏳Login Flow:
+
+
+https://github.com/laprinia/opea/assets/51471463/4110d372-e1dc-4a2a-8a8b-7e1cd41dabff
+
+
 
 ### Generate WIP:
 Currently, color blocks display the HEX color picked using the Mantine picker
