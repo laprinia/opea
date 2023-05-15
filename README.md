@@ -15,7 +15,7 @@ React & Node.js full-stack authentication for a color picking web app --written 
   * Joi for data validation
   * JWT for creating authentication tokens
   * Nodemon for better server management
-### Key Feats:
+### 🗝️Key Feats:
   * Joi data validation for the backend 
   ```js
   const bucketSchema = {
@@ -93,7 +93,7 @@ https://github.com/laprinia/opea/assets/51471463/4110d372-e1dc-4a2a-8a8b-7e1cd41
 
 
 
-### Generate WIP:
+### 🎹Generate WIP:
 Currently, color blocks display the HEX color picked using the Mantine picker:
 
 
