@@ -94,6 +94,10 @@ https://github.com/laprinia/opea/assets/51471463/4110d372-e1dc-4a2a-8a8b-7e1cd41
 
 
 ### Generate WIP:
-Currently, color blocks display the HEX color picked using the Mantine picker
+Currently, color blocks display the HEX color picked using the Mantine picker:
+
+
+https://github.com/laprinia/opea/assets/51471463/39c29a45-342d-49ac-90e4-0c1661213c4d
+
 
 
